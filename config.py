@@ -8,7 +8,11 @@ class Config:
     SECRET_KEY = os.environ.get('SESSION_SECRET', 'dev_secret_key')
     
     # Database settings
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'sqlite:///bot.db')
+    DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite:///bot.db')
+    # Fix for postgres://... URLs for SQLAlchemy 1.4+
+    if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
+        DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+    SQLALCHEMY_DATABASE_URI = DATABASE_URL
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
     # Discord settings
