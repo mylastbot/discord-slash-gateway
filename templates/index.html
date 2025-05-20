@@ -1,0 +1,136 @@
+{% extends 'layout.html' %}
+
+{% block title %}Discord Bot - Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="text-center mb-5">
+                <h1 class="display-4 fw-bold mb-3">
+                    <i class="fab fa-discord text-primary me-2"></i> Discord Bot
+                </h1>
+                <p class="lead text-secondary">
+                    A powerful Discord bot with focus multiplier games and real-time web interface
+                </p>
+            </div>
+            
+            <!-- Feature Cards -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 bg-dark">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-robot fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">Discord Gateway API</h5>
+                            <p class="card-text text-secondary">
+                                Connect to Discord using the official Gateway API for real-time interactions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 bg-dark">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-terminal fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">Slash Commands</h5>
+                            <p class="card-text text-secondary">
+                                Use modern slash commands for easy interaction with the bot.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 bg-dark">
+                        <div class="card-body text-center p-4">
+                            <div class="mb-3">
+                                <i class="fas fa-gamepad fa-3x text-primary"></i>
+                            </div>
+                            <h5 class="card-title">Focus Multiplier Game</h5>
+                            <p class="card-text text-secondary">
+                                Engage users with an interactive focus game to improve productivity.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Getting Started Section -->
+            <div class="card border-0 bg-dark mb-5">
+                <div class="card-body p-4">
+                    <h3 class="card-title mb-4">Getting Started</h3>
+                    
+                    <div class="mb-4">
+                        <h5><i class="fas fa-plus-circle me-2 text-success"></i> Adding the Bot</h5>
+                        <p>Invite the bot to your Discord server using the official invite link.</p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5><i class="fas fa-terminal me-2 text-info"></i> Available Commands</h5>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Command</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>/ping</code></td>
+                                        <td>Check if the bot is online</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>/help</code></td>
+                                        <td>Show available commands</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>/focus</code></td>
+                                        <td>Start a focus session to earn points</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>/unfocus</code></td>
+                                        <td>End your focus session</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>/stats</code></td>
+                                        <td>Show your focus stats</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>/leaderboard</code></td>
+                                        <td>Show the focus leaderboard</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5><i class="fas fa-brain me-2 text-warning"></i> How the Focus Game Works</h5>
+                        <p>The focus game helps users stay focused and productive:</p>
+                        <ol>
+                            <li>Start a focus session with <code>/focus</code></li>
+                            <li>Points accumulate while you're in focus mode</li>
+                            <li>The longer you focus, the higher your multiplier goes</li>
+                            <li>End your session with <code>/unfocus</code> to see your score</li>
+                            <li>Compete with others on the leaderboard!</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dashboard Link -->
+            <div class="text-center mb-5">
+                <a href="/dashboard" class="btn btn-primary btn-lg">
+                    <i class="fas fa-tachometer-alt me-2"></i> Go to Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

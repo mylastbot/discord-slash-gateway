@@ -1,0 +1,293 @@
+{% extends 'layout.html' %}
+
+{% block title %}Discord Bot - Dashboard{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <!-- Status Cards Row -->
+    <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-md-3">
+            <div class="card status-card bg-dark border-0">
+                <div class="card-body text-center">
+                    <div class="card-title">Bot Status</div>
+                    <div class="status-value">
+                        <span id="status-badge" class="badge {% if status.online %}bg-success{% else %}bg-danger{% endif %}">
+                            {% if status.online %}Online{% else %}Offline{% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-3">
+            <div class="card status-card bg-dark border-0">
+                <div class="card-body text-center">
+                    <div class="card-title">Uptime</div>
+                    <div class="status-value" id="uptime-display">
+                        {{ status.uptime|default('--:--:--') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-3">
+            <div class="card status-card bg-dark border-0">
+                <div class="card-body text-center">
+                    <div class="card-title">Servers</div>
+                    <div class="status-value" id="guilds-count">
+                        {{ status.guilds|default('0') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-3">
+            <div class="card status-card bg-dark border-0">
+                <div class="card-body text-center">
+                    <div class="card-title">Commands Used</div>
+                    <div class="status-value" id="commands-count">
+                        {{ status.commands_used|default('0') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Additional Status Cards -->
+    <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-md-3">
+            <div class="card status-card bg-dark border-0">
+                <div class="card-body text-center">
+                    <div class="card-title">Active Focus Sessions</div>
+                    <div class="status-value" id="active-users-count">
+                        {{ status.active_users|default('0') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-3">
+            <div class="card status-card bg-dark border-0">
+                <div class="card-body text-center">
+                    <div class="card-title">Total Focus Score</div>
+                    <div class="status-value" id="total-focus-score">
+                        {{ status.total_focus_score|default('0') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-sm-6 col-md-6">
+            <div class="card status-card bg-dark border-0">
+                <div class="card-body">
+                    <div class="card-title">Last Command</div>
+                    <div class="status-value small" id="last-command-info">
+                        {% if status.last_command %}
+                            <strong>{{ status.last_command.name }}</strong> by {{ status.last_command.user }} 
+                            ({{ status.last_command.time }})
+                        {% else %}
+                            No commands used yet
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tabs Section -->
+    <div class="card bg-dark border-0 mb-4">
+        <div class="card-header bg-dark p-0">
+            <ul class="nav nav-tabs dashboard-tabs" id="dashboardTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="true">
+                        <i class="fas fa-eye me-2"></i>Overview
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="servers-tab" data-bs-toggle="tab" data-bs-target="#servers" type="button" role="tab" aria-controls="servers" aria-selected="false">
+                        <i class="fas fa-server me-2"></i>Servers
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="leaderboard-tab" data-bs-toggle="tab" data-bs-target="#leaderboard" type="button" role="tab" aria-controls="leaderboard" aria-selected="false">
+                        <i class="fas fa-trophy me-2"></i>Leaderboard
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="events-tab" data-bs-toggle="tab" data-bs-target="#events" type="button" role="tab" aria-controls="events" aria-selected="false">
+                        <i class="fas fa-history me-2"></i>Event Log
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <div class="tab-content" id="dashboardTabsContent">
+                <!-- Overview Tab -->
+                <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card bg-dark mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">
+                                        <i class="fas fa-headset me-2"></i>Discord Bot Status
+                                    </h5>
+                                    <span class="badge rounded-pill {% if status.online %}bg-success{% else %}bg-danger{% endif %}">
+                                        {% if status.online %}Connected{% else %}Disconnected{% endif %}
+                                    </span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="discord-status mb-3">
+                                        <div class="bot-avatar">
+                                            <i class="fas fa-robot"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0">Discord Bot</h6>
+                                            <small class="text-muted">Connected via Gateway API</small>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="table-responsive">
+                                        <table class="table table-sm">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Uptime</td>
+                                                    <td>{{ status.uptime|default('--:--:--') }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Servers Connected</td>
+                                                    <td>{{ status.guilds|default('0') }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Commands Used</td>
+                                                    <td>{{ status.commands_used|default('0') }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Users in Focus</td>
+                                                    <td>{{ status.active_users|default('0') }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card bg-dark mb-4">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">
+                                        <i class="fas fa-users me-2"></i>Active Focus Sessions
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group focus-sessions" id="active-games">
+                                        {% if status.active_users and status.active_users > 0 %}
+                                            <p class="text-center">
+                                                <i class="fas fa-spinner fa-spin me-2"></i>Loading active sessions...
+                                            </p>
+                                        {% else %}
+                                            <div class="text-center py-4 text-muted">
+                                                <i class="fas fa-user-clock fa-3x mb-3"></i>
+                                                <p>No active focus sessions right now</p>
+                                            </div>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servers Tab -->
+                <div class="tab-pane fade" id="servers" role="tabpanel" aria-labelledby="servers-tab">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="mb-3">Connected Servers ({{ guilds|length }})</h5>
+                            
+                            {% if guilds %}
+                                <div class="server-list">
+                                    {% for guild in guilds %}
+                                        <div class="server-item">
+                                            <div class="server-icon">
+                                                {{ guild.name[0] }}
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-0">{{ guild.name }}</h6>
+                                                <small class="text-muted">ID: {{ guild.id }}</small>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <div class="alert alert-info">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    Bot is not connected to any Discord servers yet.
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Leaderboard Tab -->
+                <div class="tab-pane fade" id="leaderboard" role="tabpanel" aria-labelledby="leaderboard-tab">
+                    <div class="row">
+                        <div class="col-12">
+                            <h5 class="mb-3">Focus Game Leaderboard</h5>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-hover leaderboard-table" id="leaderboard-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>User</th>
+                                            <th>Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% if stats %}
+                                            {% for stat in stats %}
+                                                <tr data-user-id="{{ stat.user }}">
+                                                    <td class="rank-cell">{{ loop.index }}
+                                                        {% if loop.index <= 3 %}
+                                                            {{ ["🥇", "🥈", "🥉"][loop.index-1] }}
+                                                        {% endif %}
+                                                    </td>
+                                                    <td>User {{ stat.user }}</td>
+                                                    <td class="score-cell">{{ stat.score }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% else %}
+                                            <tr>
+                                                <td colspan="3" class="text-center py-4 text-muted">
+                                                    <i class="fas fa-chart-simple fa-2x mb-2"></i>
+                                                    <p>No focus game data available yet</p>
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Events Tab -->
+                <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="mb-0">Recent Events</h5>
+                        <button id="clear-log-btn" class="btn btn-sm btn-outline-danger">
+                            <i class="fas fa-trash me-2"></i>Clear Log
+                        </button>
+                    </div>
+                    
+                    <div class="event-log" id="event-log">
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>Events will appear here in real-time.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
