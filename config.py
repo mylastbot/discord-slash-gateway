@@ -8,7 +8,7 @@ class Config:
     SECRET_KEY = os.environ.get('SESSION_SECRET', 'dev_secret_key')
     
     # Database settings
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'sqlite:///discord_bot.db')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'sqlite:///bot.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
     # Discord settings
