@@ -73,21 +73,25 @@ class DiscordBot(commands.Bot):
         logger.info(f"Joined new guild: {guild.name}")
         bot_status["guilds"] = len(self.guilds)
         
-        # Add server to database
-        server = Server(id=str(guild.id), name=guild.name, member_count=guild.member_count)
-        db.session.add(server)
-        db.session.commit()
+        # Add server to database - using app context
+        from app import app
+        with app.app_context():
+            server = Server(id=str(guild.id), name=guild.name, member_count=guild.member_count)
+            db.session.add(server)
+            db.session.commit()
 
     async def on_guild_remove(self, guild):
         global bot_status
         logger.info(f"Left guild: {guild.name}")
         bot_status["guilds"] = len(self.guilds)
         
-        # Update server status in database
-        server = Server.query.get(str(guild.id))
-        if server:
-            db.session.delete(server)
-            db.session.commit()
+        # Update server status in database - using app context
+        from app import app
+        with app.app_context():
+            server = Server.query.get(str(guild.id))
+            if server:
+                db.session.delete(server)
+                db.session.commit()
 
     async def on_app_command_completion(self, interaction, command):
         global bot_status
@@ -98,21 +102,23 @@ class DiscordBot(commands.Bot):
             "time": datetime.now().isoformat()
         }
         
-        # Log command in database
-        cmd = Command.query.filter_by(name=command.name).first()
-        if not cmd:
-            cmd = Command(name=command.name, description=command.description, usage_count=1)
-            db.session.add(cmd)
-        else:
-            cmd.usage_count += 1
-        
-        log = CommandLog(
-            command_name=command.name,
-            user_id=str(interaction.user.id),
-            server_id=str(interaction.guild_id) if interaction.guild else None
-        )
-        db.session.add(log)
-        db.session.commit()
+        # Log command in database - using app context
+        from app import app
+        with app.app_context():
+            cmd = Command.query.filter_by(name=command.name).first()
+            if not cmd:
+                cmd = Command(name=command.name, description=command.description, usage_count=1)
+                db.session.add(cmd)
+            else:
+                cmd.usage_count += 1
+            
+            log = CommandLog(
+                command_name=command.name,
+                user_id=str(interaction.user.id),
+                server_id=str(interaction.guild_id) if interaction.guild else None
+            )
+            db.session.add(log)
+            db.session.commit()
 
     @tasks.loop(seconds=5)
     async def update_status(self):
@@ -144,21 +150,28 @@ class DiscordBot(commands.Bot):
                     game_data["score"] += points_to_add
                     game_data["last_update"] = current_time
                     
-                    # Update in database
-                    game = FocusGame.query.filter_by(user_id=user_id).first()
-                    if game:
-                        game.score = game_data["score"]
-                        game.multiplier = game_data["multiplier"]
-                        game.last_updated = current_time
-                        db.session.commit()
+                    # Update in database - using app context
+                    from app import app
+                    with app.app_context():
+                        game = FocusGame.query.filter_by(user_id=user_id).first()
+                        if game:
+                            game.score = game_data["score"]
+                            game.multiplier = game_data["multiplier"]
+                            game.last_updated = current_time
+                            db.session.commit()
                     
                     # If game has been running for more than 30 minutes, add a bonus
                     session_duration = (current_time - game_data["session_start"]).total_seconds() / 60
                     if session_duration > 30 and random.random() < 0.15:  # 15% chance
                         game_data["multiplier"] += 0.1
-                        if game:
-                            game.multiplier = game_data["multiplier"]
-                            db.session.commit()
+                        
+                        # Update multiplier in database - using app context
+                        from app import app
+                        with app.app_context():
+                            game = FocusGame.query.filter_by(user_id=user_id).first()
+                            if game:
+                                game.multiplier = game_data["multiplier"]
+                                db.session.commit()
                         
                         # Try to notify the user if they have a DM channel
                         user = self.get_user(int(user_id))
@@ -203,17 +216,19 @@ def setup_commands(bot):
         
         current_time = datetime.now()
         
-        # Get or create game record
-        game = FocusGame.query.filter_by(user_id=user_id).first()
-        if not game:
-            game = FocusGame(user_id=user_id)
-            db.session.add(game)
-            db.session.commit()
-            score = 0
-            multiplier = 1.0
-        else:
-            score = game.score
-            multiplier = game.multiplier
+        # Get or create game record - using app context
+        from app import app
+        with app.app_context():
+            game = FocusGame.query.filter_by(user_id=user_id).first()
+            if not game:
+                game = FocusGame(user_id=user_id)
+                db.session.add(game)
+                db.session.commit()
+                score = 0
+                multiplier = 1.0
+            else:
+                score = game.score
+                multiplier = game.multiplier
         
         # Set up focus session
         bot.focus_games[user_id] = {
