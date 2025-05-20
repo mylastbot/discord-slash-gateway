@@ -4,4 +4,4 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 if __name__ == "__main__":
-    socketio.run(app, host="0.0.0.0", port=5000, debug=True)
+    socketio.run(app, host="0.0.0.0", port=5000, debug=True, ping_timeout=60, ping_interval=25)
