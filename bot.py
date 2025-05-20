@@ -55,16 +55,18 @@ class DiscordBot(commands.Bot):
         self.update_status.start()
         self.update_focus_games.start()
         
-        # Update server information in database
-        for guild in self.guilds:
-            server = Server.query.get(str(guild.id))
-            if not server:
-                server = Server(id=str(guild.id), name=guild.name, member_count=guild.member_count)
-                db.session.add(server)
-            else:
-                server.name = guild.name
-                server.member_count = guild.member_count
-        db.session.commit()
+        # Update server information in database - using app context
+        from app import app
+        with app.app_context():
+            for guild in self.guilds:
+                server = Server.query.get(str(guild.id))
+                if not server:
+                    server = Server(id=str(guild.id), name=guild.name, member_count=guild.member_count)
+                    db.session.add(server)
+                else:
+                    server.name = guild.name
+                    server.member_count = guild.member_count
+            db.session.commit()
 
     async def on_guild_join(self, guild):
         global bot_status

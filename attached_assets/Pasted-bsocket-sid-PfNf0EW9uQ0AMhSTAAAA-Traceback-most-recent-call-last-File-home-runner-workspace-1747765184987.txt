@@ -1,0 +1,541 @@
+bsocket&sid=PfNf0EW9uQ0AMhSTAAAA
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 177, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask_socketio/__init__.py", line 42, in __call__
+    return super().__call__(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/middleware.py", line 63, in __call__
+    return self.engineio_app.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/socketio/server.py", line 434, in handle_request
+    return self.eio.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/server.py", line 286, in handle_request
+    packets = socket.handle_get_request(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 92, in handle_get_request
+    return getattr(self, '_upgrade_' + transport)(environ,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 151, in _upgrade_websocket
+    return ws(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 15, in __call__
+    ret = self.app(self)
+          ^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 183, in _websocket_handler
+    pkt = websocket_wait()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 156, in websocket_wait
+    data = ws.wait()
+           ^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 32, in wait
+    return self.ws.receive()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/simple_websocket/ws.py", line 96, in receive
+    if not self.event.wait(timeout=timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 629, in wait
+    signaled = self._cond.wait(timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 327, in wait
+    waiter.acquire()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2025-05-20 18:10:18 +0000] [1978] [INFO] Worker exiting (pid: 1978)
+[2025-05-20 18:10:18 +0000] [2000] [INFO] Booting worker with pid: 2000
+ERROR:bot:No Discord bot token found in environment variables!
+INFO:app:Bot thread started
+Invalid session PfNf0EW9uQ0AMhSTAAAA (further occurrences of this error will be logged with level INFO)
+ERROR:engineio.server:Invalid session PfNf0EW9uQ0AMhSTAAAA (further occurrences of this error will be logged with level INFO)
+DEBUG:app:Client connected to WebSocket
+[2025-05-20 18:11:20 +0000] [1738] [CRITICAL] WORKER TIMEOUT (pid:2000)
+[2025-05-20 18:11:20 +0000] [2000] [ERROR] Error handling request /socket.io/?EIO=4&transport=websocket&sid=UP4I3GgEZVyjzOoVAAAA
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 177, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask_socketio/__init__.py", line 42, in __call__
+    return super().__call__(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/middleware.py", line 63, in __call__
+    return self.engineio_app.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/socketio/server.py", line 434, in handle_request
+    return self.eio.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/server.py", line 286, in handle_request
+    packets = socket.handle_get_request(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 92, in handle_get_request
+    return getattr(self, '_upgrade_' + transport)(environ,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 151, in _upgrade_websocket
+    return ws(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 15, in __call__
+    ret = self.app(self)
+          ^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 183, in _websocket_handler
+    pkt = websocket_wait()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 156, in websocket_wait
+    data = ws.wait()
+           ^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 32, in wait
+    return self.ws.receive()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/simple_websocket/ws.py", line 96, in receive
+    if not self.event.wait(timeout=timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 629, in wait
+    signaled = self._cond.wait(timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 327, in wait
+    waiter.acquire()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2025-05-20 18:11:20 +0000] [2000] [INFO] Worker exiting (pid: 2000)
+[2025-05-20 18:11:21 +0000] [2007] [INFO] Booting worker with pid: 2007
+ERROR:bot:No Discord bot token found in environment variables!
+INFO:app:Bot thread started
+Invalid session UP4I3GgEZVyjzOoVAAAA (further occurrences of this error will be logged with level INFO)
+ERROR:engineio.server:Invalid session UP4I3GgEZVyjzOoVAAAA (further occurrences of this error will be logged with level INFO)
+DEBUG:app:Client connected to WebSocket
+[2025-05-20 18:12:20 +0000] [1738] [CRITICAL] WORKER TIMEOUT (pid:2007)
+[2025-05-20 18:12:20 +0000] [2007] [ERROR] Error handling request /socket.io/?EIO=4&transport=websocket&sid=1fcZXM3GPWRE-TvuAAAA
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 177, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask_socketio/__init__.py", line 42, in __call__
+    return super().__call__(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/middleware.py", line 63, in __call__
+    return self.engineio_app.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/socketio/server.py", line 434, in handle_request
+    return self.eio.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/server.py", line 286, in handle_request
+    packets = socket.handle_get_request(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 92, in handle_get_request
+    return getattr(self, '_upgrade_' + transport)(environ,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 151, in _upgrade_websocket
+    return ws(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 15, in __call__
+    ret = self.app(self)
+          ^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 183, in _websocket_handler
+    pkt = websocket_wait()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 156, in websocket_wait
+    data = ws.wait()
+           ^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 32, in wait
+    return self.ws.receive()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/simple_websocket/ws.py", line 96, in receive
+    if not self.event.wait(timeout=timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 629, in wait
+    signaled = self._cond.wait(timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 327, in wait
+    waiter.acquire()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2025-05-20 18:12:20 +0000] [2007] [INFO] Worker exiting (pid: 2007)
+[2025-05-20 18:12:20 +0000] [2025] [INFO] Booting worker with pid: 2025
+ERROR:bot:No Discord bot token found in environment variables!
+INFO:app:Bot thread started
+Invalid session 1fcZXM3GPWRE-TvuAAAA (further occurrences of this error will be logged with level INFO)
+ERROR:engineio.server:Invalid session 1fcZXM3GPWRE-TvuAAAA (further occurrences of this error will be logged with level INFO)
+DEBUG:app:Client connected to WebSocket
+DEBUG:app:Client disconnected from WebSocket
+DEBUG:app:Client connected to WebSocket
+DEBUG:app:Client disconnected from WebSocket
+[2025-05-20 18:14:08 +0000] [1738] [CRITICAL] WORKER TIMEOUT (pid:2025)
+[2025-05-20 18:14:08 +0000] [2025] [ERROR] Error handling request /socket.io/?EIO=4&transport=websocket&sid=Okam7vpr5Zr8N0xMAAAC
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 177, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask_socketio/__init__.py", line 42, in __call__
+    return super().__call__(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/middleware.py", line 63, in __call__
+    return self.engineio_app.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/socketio/server.py", line 434, in handle_request
+    return self.eio.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/server.py", line 286, in handle_request
+    packets = socket.handle_get_request(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 92, in handle_get_request
+    return getattr(self, '_upgrade_' + transport)(environ,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 151, in _upgrade_websocket
+    return ws(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 15, in __call__
+    ret = self.app(self)
+          ^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 183, in _websocket_handler
+    pkt = websocket_wait()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 156, in websocket_wait
+    data = ws.wait()
+           ^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 32, in wait
+    return self.ws.receive()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/simple_websocket/ws.py", line 96, in receive
+    if not self.event.wait(timeout=timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 629, in wait
+    signaled = self._cond.wait(timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 327, in wait
+    waiter.acquire()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2025-05-20 18:14:08 +0000] [2025] [INFO] Worker exiting (pid: 2025)
+[2025-05-20 18:14:08 +0000] [2040] [INFO] Booting worker with pid: 2040
+ERROR:bot:No Discord bot token found in environment variables!
+INFO:app:Bot thread started
+Invalid session Okam7vpr5Zr8N0xMAAAC (further occurrences of this error will be logged with level INFO)
+ERROR:engineio.server:Invalid session Okam7vpr5Zr8N0xMAAAC (further occurrences of this error will be logged with level INFO)
+DEBUG:app:Client connected to WebSocket
+[2025-05-20 18:15:06 +0000] [1738] [CRITICAL] WORKER TIMEOUT (pid:2040)
+[2025-05-20 18:15:06 +0000] [2040] [ERROR] Error handling request /socket.io/?EIO=4&transport=websocket&sid=1T0W5zo_ANP8iNnAAAAA
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 177, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask_socketio/__init__.py", line 42, in __call__
+    return super().__call__(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/middleware.py", line 63, in __call__
+    return self.engineio_app.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/socketio/server.py", line 434, in handle_request
+    return self.eio.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/server.py", line 286, in handle_request
+    packets = socket.handle_get_request(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 92, in handle_get_request
+    return getattr(self, '_upgrade_' + transport)(environ,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 151, in _upgrade_websocket
+    return ws(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 15, in __call__
+    ret = self.app(self)
+          ^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 183, in _websocket_handler
+    pkt = websocket_wait()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 156, in websocket_wait
+    data = ws.wait()
+           ^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 32, in wait
+    return self.ws.receive()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/simple_websocket/ws.py", line 96, in receive
+    if not self.event.wait(timeout=timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 629, in wait
+    signaled = self._cond.wait(timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 327, in wait
+    waiter.acquire()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2025-05-20 18:15:06 +0000] [2040] [INFO] Worker exiting (pid: 2040)
+[2025-05-20 18:15:06 +0000] [2047] [INFO] Booting worker with pid: 2047
+ERROR:bot:No Discord bot token found in environment variables!
+INFO:app:Bot thread started
+Invalid session 1T0W5zo_ANP8iNnAAAAA (further occurrences of this error will be logged with level INFO)
+ERROR:engineio.server:Invalid session 1T0W5zo_ANP8iNnAAAAA (further occurrences of this error will be logged with level INFO)
+DEBUG:app:Client connected to WebSocket
+[2025-05-20 18:15:51 +0000] [1738] [INFO] Handling signal: winch
+[2025-05-20 18:15:51 +0000] [1738] [INFO] Handling signal: winch
+[2025-05-20 18:15:51 +0000] [1738] [INFO] Handling signal: winch
+[2025-05-20 18:15:51 +0000] [1738] [INFO] Handling signal: winch
+[2025-05-20 18:16:05 +0000] [1738] [CRITICAL] WORKER TIMEOUT (pid:2047)
+[2025-05-20 18:16:05 +0000] [2047] [ERROR] Error handling request /socket.io/?EIO=4&transport=websocket&sid=wJLmRenH6cwl-FQVAAAA
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 177, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask_socketio/__init__.py", line 42, in __call__
+    return super().__call__(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/middleware.py", line 63, in __call__
+    return self.engineio_app.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/socketio/server.py", line 434, in handle_request
+    return self.eio.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/server.py", line 286, in handle_request
+    packets = socket.handle_get_request(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 92, in handle_get_request
+    return getattr(self, '_upgrade_' + transport)(environ,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 151, in _upgrade_websocket
+    return ws(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 15, in __call__
+    ret = self.app(self)
+          ^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 183, in _websocket_handler
+    pkt = websocket_wait()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 156, in websocket_wait
+    data = ws.wait()
+           ^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 32, in wait
+    return self.ws.receive()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/simple_websocket/ws.py", line 96, in receive
+    if not self.event.wait(timeout=timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 629, in wait
+    signaled = self._cond.wait(timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 327, in wait
+    waiter.acquire()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2025-05-20 18:16:05 +0000] [2047] [INFO] Worker exiting (pid: 2047)
+[2025-05-20 18:16:06 +0000] [2060] [INFO] Booting worker with pid: 2060
+ERROR:bot:No Discord bot token found in environment variables!
+INFO:app:Bot thread started
+Invalid session wJLmRenH6cwl-FQVAAAA (further occurrences of this error will be logged with level INFO)
+ERROR:engineio.server:Invalid session wJLmRenH6cwl-FQVAAAA (further occurrences of this error will be logged with level INFO)
+DEBUG:app:Client connected to WebSocket
+[2025-05-20 18:17:10 +0000] [1738] [CRITICAL] WORKER TIMEOUT (pid:2060)
+[2025-05-20 18:17:10 +0000] [2060] [ERROR] Error handling request /socket.io/?EIO=4&transport=websocket&sid=Zn0lX-ZajxVzOME5AAAA
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 177, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask_socketio/__init__.py", line 42, in __call__
+    return super().__call__(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/middleware.py", line 63, in __call__
+    return self.engineio_app.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/socketio/server.py", line 434, in handle_request
+    return self.eio.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/server.py", line 286, in handle_request
+    packets = socket.handle_get_request(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 92, in handle_get_request
+    return getattr(self, '_upgrade_' + transport)(environ,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 151, in _upgrade_websocket
+    return ws(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 15, in __call__
+    ret = self.app(self)
+          ^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 183, in _websocket_handler
+    pkt = websocket_wait()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 156, in websocket_wait
+    data = ws.wait()
+           ^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 32, in wait
+    return self.ws.receive()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/simple_websocket/ws.py", line 96, in receive
+    if not self.event.wait(timeout=timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 629, in wait
+    signaled = self._cond.wait(timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 327, in wait
+    waiter.acquire()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2025-05-20 18:17:10 +0000] [2060] [INFO] Worker exiting (pid: 2060)
+[2025-05-20 18:17:10 +0000] [2079] [INFO] Booting worker with pid: 2079
+ERROR:bot:No Discord bot token found in environment variables!
+INFO:app:Bot thread started
+Invalid session Zn0lX-ZajxVzOME5AAAA (further occurrences of this error will be logged with level INFO)
+ERROR:engineio.server:Invalid session Zn0lX-ZajxVzOME5AAAA (further occurrences of this error will be logged with level INFO)
+DEBUG:app:Client connected to WebSocket
+[2025-05-20 18:18:08 +0000] [1738] [CRITICAL] WORKER TIMEOUT (pid:2079)
+[2025-05-20 18:18:08 +0000] [2079] [ERROR] Error handling request /socket.io/?EIO=4&transport=websocket&sid=mPJhB8hqnQ3BCSdlAAAA
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 177, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask_socketio/__init__.py", line 42, in __call__
+    return super().__call__(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/middleware.py", line 63, in __call__
+    return self.engineio_app.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/socketio/server.py", line 434, in handle_request
+    return self.eio.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/server.py", line 286, in handle_request
+    packets = socket.handle_get_request(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 92, in handle_get_request
+    return getattr(self, '_upgrade_' + transport)(environ,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 151, in _upgrade_websocket
+    return ws(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 15, in __call__
+    ret = self.app(self)
+          ^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 183, in _websocket_handler
+    pkt = websocket_wait()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 156, in websocket_wait
+    data = ws.wait()
+           ^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 32, in wait
+    return self.ws.receive()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/simple_websocket/ws.py", line 96, in receive
+    if not self.event.wait(timeout=timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 629, in wait
+    signaled = self._cond.wait(timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 327, in wait
+    waiter.acquire()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2025-05-20 18:18:08 +0000] [2079] [INFO] Worker exiting (pid: 2079)
+[2025-05-20 18:18:09 +0000] [2086] [INFO] Booting worker with pid: 2086
+ERROR:bot:No Discord bot token found in environment variables!
+INFO:app:Bot thread started
+Invalid session mPJhB8hqnQ3BCSdlAAAA (further occurrences of this error will be logged with level INFO)
+ERROR:engineio.server:Invalid session mPJhB8hqnQ3BCSdlAAAA (further occurrences of this error will be logged with level INFO)
+DEBUG:app:Client connected to WebSocket
+[2025-05-20 18:19:07 +0000] [1738] [CRITICAL] WORKER TIMEOUT (pid:2086)
+[2025-05-20 18:19:07 +0000] [2086] [ERROR] Error handling request /socket.io/?EIO=4&transport=websocket&sid=n_l7NXB4PHNGqMlmAAAA
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    self.handle_request(listener, req, client, addr)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/sync.py", line 177, in handle_request
+    respiter = self.wsgi(environ, resp.start_response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask/app.py", line 1536, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/flask_socketio/__init__.py", line 42, in __call__
+    return super().__call__(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/middleware.py", line 63, in __call__
+    return self.engineio_app.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/socketio/server.py", line 434, in handle_request
+    return self.eio.handle_request(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/server.py", line 286, in handle_request
+    packets = socket.handle_get_request(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 92, in handle_get_request
+    return getattr(self, '_upgrade_' + transport)(environ,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 151, in _upgrade_websocket
+    return ws(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 15, in __call__
+    ret = self.app(self)
+          ^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 183, in _websocket_handler
+    pkt = websocket_wait()
+          ^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/socket.py", line 156, in websocket_wait
+    data = ws.wait()
+           ^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/engineio/async_drivers/_websocket_wsgi.py", line 32, in wait
+    return self.ws.receive()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/simple_websocket/ws.py", line 96, in receive
+    if not self.event.wait(timeout=timeout):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 629, in wait
+    signaled = self._cond.wait(timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/clx0mcir7qw8zk36zbr4jra789g3knf6-python3-3.11.10/lib/python3.11/threading.py", line 327, in wait
+    waiter.acquire()
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+    sys.exit(1)
+SystemExit: 1
+[2025-05-20 18:19:07 +0000] [2086] [INFO] Worker exiting (pid: 2086)
+[2025-05-20 18:19:07 +0000] [2093] [INFO] Booting worker with pid: 2093
+ERROR:bot:No Discord bot token found in environment variables!
+INFO:app:Bot thread started
+Invalid session n_l7NXB4PHNGqMlmAAAA (further occurrences of this error will be logged with level INFO)
+ERROR:engineio.server:Invalid session n_l7NXB4PHNGqMlmAAAA (further occurrences of this error will be logged with level INFO)
+[2025-05-20 18:19:25 +0000] [1738] [INFO] Handling signal: winch
+[2025-05-20 18:19:25 +0000] [1738] [INFO] Handling signal: winch
+[2025-05-20 18:19:25 +0000] [1738] [INFO] Handling signal: winch
+[2025-05-20 18:19:25 +0000] [1738] [INFO] Handling signal: winch
+DEBUG:app:Client connected to WebSocket
