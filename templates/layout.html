@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Discord Bot Dashboard{% endblock %}</title>
+    
+    <!-- Bootstrap CSS (Replit Theme) -->
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- SocketIO JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.min.js"></script>
+    
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-flex align-items-center" href="/">
+                        <i class="fab fa-discord me-2 fs-3"></i>
+                        <span>Discord Bot</span>
+                    </a>
+                    
+                    <button id="sidebar-toggle" class="btn btn-dark d-md-none" type="button">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
+                    <div class="d-flex ms-auto align-items-center">
+                        <div id="connection-status" class="me-3">
+                            <span class="badge bg-secondary">Connecting...</span>
+                        </div>
+                        <button class="btn btn-primary btn-sm" onclick="refreshBotStatus()">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <div class="content-container">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <ul class="sidebar-nav nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/dashboard' %}active{% endif %}" href="/dashboard">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://discord.com/developers/applications" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Discord Developer Portal
+                        </a>
+                    </li>
+                    <li class="nav-item mt-4">
+                        <div class="px-3">
+                            <div class="fs-6 fw-bold text-light mb-2">
+                                <i class="fas fa-circle-info me-1"></i> Bot Status
+                            </div>
+                            <div class="card bg-dark">
+                                <div class="card-body py-2">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Status:</span>
+                                        <span id="bot-status">
+                                            <span class="badge bg-secondary">Unknown</span>
+                                        </span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Uptime:</span>
+                                        <span id="bot-uptime">--:--:--</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Servers:</span>
+                                        <span id="guild-count">0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span>Commands:</span>
+                                        <span id="commands-used">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </aside>
+            
+            <!-- Main Content -->
+            <main class="main-content">
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- SocketIO Client Script -->
+    <script src="{{ url_for('static', filename='js/socketio.js') }}"></script>
+    
+    <!-- Main JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html>

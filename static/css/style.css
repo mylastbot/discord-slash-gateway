@@ -1,0 +1,263 @@
+/* Custom styles for Discord Bot Web Interface */
+
+:root {
+    --sidebar-width: 250px;
+    --header-height: 60px;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Layout Components */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-container {
+    display: flex;
+    flex: 1;
+}
+
+/* Header Styles */
+.app-header {
+    height: var(--header-height);
+    border-bottom: 1px solid var(--bs-dark);
+    background-color: var(--bs-dark);
+    z-index: 1030;
+}
+
+.app-header .navbar-brand img {
+    height: 30px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--header-height));
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    background-color: var(--bs-gray-900);
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    z-index: 1020;
+}
+
+.sidebar-nav {
+    padding: 1rem 0;
+}
+
+.sidebar-nav .nav-link {
+    padding: 0.75rem 1.25rem;
+    color: var(--bs-gray-400);
+    border-left: 3px solid transparent;
+}
+
+.sidebar-nav .nav-link:hover {
+    color: var(--bs-white);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-nav .nav-link.active {
+    color: var(--bs-white);
+    border-left-color: var(--bs-primary);
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.sidebar-nav .nav-link i {
+    margin-right: 0.5rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    padding: 1.5rem;
+    transition: margin-left 0.3s ease;
+}
+
+/* Status Cards */
+.status-card {
+    height: 100%;
+    transition: transform 0.2s;
+}
+
+.status-card:hover {
+    transform: translateY(-5px);
+}
+
+.status-card .card-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--bs-gray-600);
+}
+
+.status-card .status-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Event Log */
+.event-log {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.event-log .alert {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Active Focus Sessions */
+.focus-sessions {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.focus-session-item {
+    border-left: 3px solid var(--bs-success);
+    background-color: rgba(25, 135, 84, 0.05);
+    margin-bottom: 0.5rem;
+}
+
+/* Leaderboard */
+.leaderboard-table tr:nth-child(-n+3) td:first-child {
+    font-weight: bold;
+}
+
+/* Dashboard Tabs */
+.dashboard-tabs .nav-link {
+    padding: 0.75rem 1.25rem;
+    border-radius: 0;
+    border: none;
+    color: var(--bs-gray-600);
+}
+
+.dashboard-tabs .nav-link.active {
+    color: var(--bs-primary);
+    background-color: transparent;
+    border-bottom: 2px solid var(--bs-primary);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    body.sidebar-collapsed .sidebar {
+        transform: translateX(0);
+    }
+    
+    body.sidebar-collapsed .main-content {
+        margin-left: 0;
+    }
+    
+    body.sidebar-collapsed::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1015;
+    }
+}
+
+/* Connection Status */
+.connection-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.connection-indicator.connected {
+    background-color: var(--bs-success);
+}
+
+.connection-indicator.disconnected {
+    background-color: var(--bs-danger);
+}
+
+/* Animations for updating values */
+@keyframes highlight {
+    0% { background-color: transparent; }
+    50% { background-color: rgba(13, 110, 253, 0.2); }
+    100% { background-color: transparent; }
+}
+
+.highlight-update {
+    animation: highlight 1.5s ease;
+}
+
+/* Loading indicator */
+.loading-spinner {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+}
+
+/* Discord Bot specific styles */
+.discord-status {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    background-color: var(--bs-gray-800);
+    margin-bottom: 1rem;
+}
+
+.discord-status .bot-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    background-color: var(--bs-gray-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+
+.server-list .server-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    background-color: var(--bs-gray-800);
+    margin-bottom: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.server-list .server-item:hover {
+    background-color: var(--bs-gray-700);
+}
+
+.server-list .server-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    background-color: var(--bs-gray-600);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
